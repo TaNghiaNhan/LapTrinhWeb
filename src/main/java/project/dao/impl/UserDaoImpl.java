@@ -22,6 +22,7 @@ public class UserDaoImpl implements IUserDao{
                 user.setRoled(rs.getInt("roled"));
                 user.setUsername(rs.getString("username").trim());
                 user.setPassword(rs.getString("password").trim());
+                user.setEmail(rs.getString("email").trim());
             }
             return user;
         } catch (Exception e) {
@@ -38,6 +39,4 @@ public class UserDaoImpl implements IUserDao{
             e.printStackTrace();
         }
     }
-
-
 }

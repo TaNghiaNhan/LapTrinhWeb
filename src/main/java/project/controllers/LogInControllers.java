@@ -14,23 +14,22 @@ import project.services.IUserService;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/login", "/dang nhap" })
-public class Controllers extends HttpServlet {
+public class LogInControllers extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession(false);
         if (session != null && session.getAttribute("account") != null) {
-            resp.sendRedirect(req.getContextPath() + "/waiting");
             return;
         }
+
         Cookie[] cookies = req.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("username")) {
                     session = req.getSession(true);
                     session.setAttribute("username", cookie.getValue());
-                    resp.sendRedirect(req.getContextPath() + "/waiting");
                     return;
                 }
             }
@@ -61,6 +60,5 @@ public class Controllers extends HttpServlet {
         }
         else{
             req.getRequestDispatcher("/login.jsp").forward(req, resp);        }
-
     }
 }

@@ -111,7 +111,7 @@
             <button type="button" class="cancelbtn">Cancel</button>
             <span class="psw">Forgot <a href="#">password?</a></span>
             <div class="signup">
-                <span>Don't have an account? <a href="#">Sign up</a></span>
+                <span>Don't have an account? <a href="register.jsp">Sign up</a></span>
             </div>
         </div>
     </form>
