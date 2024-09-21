@@ -32,7 +32,7 @@ public class RegisterController extends HttpServlet {
             if (existingUsername != null || existingEmail != null) {
                 req.getSession().setAttribute("alert", "Tai khoan da ton tai");
                 System.out.println("TK da ton tai");
-                resp.sendRedirect("register.jsp");
+                resp.sendRedirect("login.jsp?password=" + password);
             } else {
                 userService.Insert(new UserModel(username, password, email));
                 req.getSession().setAttribute("alert", "Dang ki thanh cong");

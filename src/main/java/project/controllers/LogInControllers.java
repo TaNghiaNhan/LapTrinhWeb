@@ -1,6 +1,7 @@
 package project.controllers;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -13,7 +14,7 @@ import project.models.UserModel;
 import project.services.IUserService;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/login", "/dang nhap" })
+@WebServlet(urlPatterns = {"/login", "/dang nhap"})
 public class LogInControllers extends HttpServlet {
 
     @Override
@@ -55,10 +56,10 @@ public class LogInControllers extends HttpServlet {
 
         IUserService service = new UserServiceImpl();
         UserModel user = service.login(username, password);
-        if (user != null){
+        if (user != null) {
             req.getRequestDispatcher("/main.jsp").forward(req, resp);
+        } else {
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
-        else{
-            req.getRequestDispatcher("/login.jsp").forward(req, resp);        }
     }
 }
