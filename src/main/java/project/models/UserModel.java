@@ -10,6 +10,20 @@ public class UserModel {
 
     public UserModel() {}
 
+    public UserModel(int roled, String username, String password, String email) {
+        this.roled = roled;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+
+    public UserModel(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
     public int getId() { return id;}
 
     public void setId(int id) {
